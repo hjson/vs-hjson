@@ -46,14 +46,13 @@ namespace Laktak.Hjson
     {
       string src=Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Data");
       string ext=Environment.ExpandEnvironmentVariables("%userprofile%\\.vs\\Extensions");
-      string target=Path.Combine(ext, "Hjson");
+      string target=Path.Combine(ext, "Hjson\\Syntaxes");
 
       await System.Threading.Tasks.Task.Run(() =>
       {
         try
         {
-          if (!Directory.Exists(target))
-            Directory.CreateDirectory(target);
+          Directory.CreateDirectory(target);
 
           File.Copy(
             Path.Combine(src, "Hjson.tmLanguage"),
